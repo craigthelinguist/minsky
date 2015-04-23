@@ -33,14 +33,14 @@ def instruction_to_vector(num_registers, line, args):
 
     # incrementing a registry
     elif args[0][-1] == "+":
-        r = int(args[0][1]) # will look like r3+, get middle element
+        r = int(args[0][1]) - 1 # will look like r3+, get middle element
         next_state = int(args[1])
         return [[as_bin(i==r) for i in range(num_registers)] + [-line, next_state]]
 
     # decrementing a registry
     # note that this corresponds to two states
     elif args[0][-1] == "-":
-        r = int(args[0][1]) # will look liKe r3-, get middle element
+        r = int(args[0][1]) - 1 # will look liKe r3-, get middle element
         t1 = int(args[2]) # transition state if r3 > 0
         t2 = int(args[4]) # transition state if 43 = 0
         v1 = [-as_bin(i==r) for i in range(num_registers)] + [-line, t1]
