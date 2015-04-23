@@ -44,7 +44,7 @@ def instruction_to_vector(num_registers, line, args):
         t1 = int(args[2]) # transition state if r3 > 0
         t2 = int(args[4]) # transition state if 43 = 0
         v1 = [-as_bin(i==r) for i in range(num_registers)] + [-line, t1]
-        v2 = [0]*num_registers + [-line, t1]
+        v2 = [0]*num_registers + [-line, t2]
         return [v1, v2]
 
     # malformed instructions
