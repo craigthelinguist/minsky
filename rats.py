@@ -43,11 +43,12 @@ def output(arity, vectors, rationals, fpath):
     with open(fpath, "w") as f:
         primes = generate_primes(arity)
         for i, v in enumerate(vectors):
-            f.write("Rational " +  str(i) + ":   ")
+            num_str = "0" + str(i) if i < 10 else str(i)
+            f.write("Rational " +  num_str + ":\t")
             for j in range(arity):
                 f.write( str(primes[j]) + "^" + str(v[j]))
-                if j != arity-1: f.write("  x  ")
-            f.write("   = " + str(rationals[i]) + "\n")
+                if j != arity-1: f.write("\t*\t")
+            f.write("\t= " + str(rationals[i]) + "\n")
 
 def main():
     '''
